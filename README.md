@@ -1,16 +1,28 @@
 # flowframe
 
-A new Flutter project.
+I want to build a Flutter application designed to leverage the capabilities of FFmpeg via the flutter_ffmpeg package.
 
-## Getting Started
+Project Overview
 
-This project is a starting point for a Flutter application.
+App Name: FlowFrame
 
-A few resources to get you started if this is your first Flutter project:
+I like the name - also like VidMorph.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Main Functionality: The core feature of this app is to allow users to easily process various transformations to their video files on stored devices. Transformations would include format conversion, video scaling, and video compression. (other potential enhancements)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+FFmpeg Integration: Utilize the flutter_ffmpeg package, which is a Flutter plugin to bind with the native FFmpeg library.
+
+User Interface: Aim to develop a simple, intuitive interface where users can:
+
+- select a video file from their device.
+- choose the type of transformation they wish to apply.
+- initiate the processing task with some kind of feedback (progress indicator).
+- View and save the processed video back to their device.
+
+Future Enhancements
+
+Extended Video Editing Features: Considering adding more complex editing features like adding filters, trimming, or combining videos.
+
+Social Sharing Integration: Implement functionality to directly share processed videos on social media or through other channels.
+
+\*\* This project serves as a technical exercise to deepen my understanding of video processing in mobile applications.

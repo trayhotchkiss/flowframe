@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ffmpeg/flutter_ffmpeg.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,51 +8,53 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: VideoProcessor(),
+      title: 'FlowFrame',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
+        primarySwatch: Colors.blueGrey,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: MyHomePage(),
     );
   }
 }
 
-class VideoProcessor extends StatefulWidget {
-  @override
-  _VideoProcessorState createState() => _VideoProcessorState();
-}
-
-class _VideoProcessorState extends State<VideoProcessor> {
-  final FlutterFFmpeg _ffmpeg = FlutterFFmpeg();
-  String _output = "";
-
-  void _getVideoInfo() async {
-    // Replace 'input.mp4' with the path to the video file want to process
-    String inputVideoPath = 'input.mp4';
-    await _ffmpeg.execute('-i $inputVideoPath').then((result) {
-      setState(() {
-        _output = "FFmpeg process exited with rc $result";
-      });
-    }).catchError((error) {
-      setState(() {
-        _output = "Failed to get video info: $error";
-      });
-    });
-  }
-
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Video Processor'),
+        title: Text('FlowFrame'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ElevatedButton(
-              onPressed: _getVideoInfo,
-              child: Text('Get Video Info'),
+            Text(
+              'Welcome to FlowFrame',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.blueGrey,
+              ),
             ),
             Padding(
-              padding: EdgeInsets.all(20),
-              child: Text(_output),
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                'Explore the power of FFmpeg in Flutter Web!',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black54,
+                ),
+              ),
             ),
           ],
         ),
